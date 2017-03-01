@@ -35,7 +35,12 @@ public class DesktopClient extends Application {
 	
 	Image img = new Image(getClass().getResourceAsStream("transferir.jpg"));
 	Image settings = new Image(getClass().getResourceAsStream("settings.png"));
-
+	Image group = new Image(getClass().getResourceAsStream("group.png"));
+	Image lock = new Image(getClass().getResourceAsStream("lock.png"));
+	Image dots = new Image(getClass().getResourceAsStream("dots.png"));
+	Image convo = new Image(getClass().getResourceAsStream("convo.png"));
+	
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -73,7 +78,15 @@ public class DesktopClient extends Application {
 		msgPane.setVgap(10);
 		msgPane.setColumnHalignment(HPos.RIGHT);
 		
+		BorderPane convoInfoPane = new BorderPane();
+		convoInfoPane.setId("infoPane");
+		convoInfoPane.setMinSize(200, 50);
 		
+		Label convoName = new Label("Conversations.im Summer of Code 2017");
+		convoInfoPane.setLeft(convoName);
+		convoName.setId("convoname");
+		
+		rightPane.setTop(convoInfoPane);
 		
 		leftPane.setTop(userTopPane);
 		rightPane.setRight(msgPane);
@@ -91,16 +104,25 @@ public class DesktopClient extends Application {
 				
 				if(e.getCode() == KeyCode.ENTER){
 					FlowPane msgHolder = new FlowPane();
+					
+					BorderPane msgContent = new BorderPane();
+				
 					msgHolder.setHgap(5);
 					Label msg = new Label();
 					Label pic = new Label();
 					Image img = new Image(getClass().getResourceAsStream("transferir.jpg"));
 					ImageView imgview = new ImageView(img);
-					imgview.setFitHeight(40);
-					imgview.setFitWidth(40);
+					imgview.setFitHeight(45);
+					imgview.setFitWidth(45);
 					imgview.setId("userPic");
 					pic.setGraphic(imgview);
-					msgHolder.getChildren().add(msg);
+					msgContent.setCenter(msg);
+					Label msginfo = new Label("CurrentUser  12:51");
+					msginfo.setId("msginfo");
+					msgContent.setTop(msginfo);
+					msgContent.setAlignment(msginfo, Pos.TOP_RIGHT);
+					msgContent.setAlignment(msg, Pos.TOP_RIGHT);
+					msgHolder.getChildren().add(msgContent);
 					msgHolder.getChildren().add(pic);
 					msgHolder.setAlignment(Pos.TOP_RIGHT);
 					msg.setText(msgInput.getText());	
@@ -114,11 +136,71 @@ public class DesktopClient extends Application {
 			}
 		});
 		
+	
+		
 		
 		ImageView userPicView = new ImageView(img);
 		userPicView.setId("userPic");
 		userPicView.setFitHeight(50);
 		userPicView.setFitWidth(50);
+		
+		ImageView dotsPicView = new ImageView(dots);
+		dotsPicView.setId("dotsPic");
+		dotsPicView.setFitHeight(20);
+		dotsPicView.setFitWidth(20);
+		
+		ImageView groupPicView = new ImageView(group);
+		groupPicView.setId("userPic");
+		groupPicView.setFitHeight(20);
+		groupPicView.setFitWidth(20);
+		
+		ImageView lockPicView = new ImageView(lock);
+		lockPicView.setFitHeight(20);
+		lockPicView.setFitWidth(20);
+		
+		FlowPane convoListPane = new FlowPane(Orientation.VERTICAL);
+		convoListPane.setVgap(10);
+		
+		ImageView urPicView = new ImageView(convo);
+		urPicView.setId("userPic");
+		urPicView.setFitHeight(50);
+		urPicView.setFitWidth(50);
+		
+		FlowPane convoInfo = new FlowPane(Orientation.VERTICAL);
+		Label convoTitle = new Label("Conversations.im Summer of Code 2017");
+		convoTitle.setId("cTitle");
+		convoTitle.setPrefWidth(200);
+		
+		Label convoMsg = new Label("  CurrentUser: Whats up?");
+		convoMsg.setId("convoMsg");
+		
+		
+		
+		convoInfo.getChildren().add(convoTitle);
+		convoInfo.getChildren().add(convoMsg);
+		
+		
+		HBox convoBox = new HBox();
+		convoBox.setSpacing(5);
+		convoBox.setMinSize(250,70);
+		convoBox.setMaxSize(250,70);
+		convoBox.setId("convoBox");
+		
+		convoBox.getChildren().add(urPicView);
+		convoBox.getChildren().add(convoInfo);
+		convoListPane.getChildren().add(convoBox);
+		leftPane.setCenter(convoListPane);
+		
+		FlowPane convoSettingsPane = new FlowPane();
+		convoSettingsPane.setHgap(7);
+		convoSettingsPane.getChildren().add(lockPicView);
+		convoSettingsPane.getChildren().add(groupPicView);
+		convoSettingsPane.getChildren().add(dotsPicView);
+		convoSettingsPane.setAlignment(Pos.TOP_RIGHT);
+		
+		convoInfoPane.setRight(convoSettingsPane);
+				
+		
 		userTopPane.getChildren().add(userPicView);
 		
 		
