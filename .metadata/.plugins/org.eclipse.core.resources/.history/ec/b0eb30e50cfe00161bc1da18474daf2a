@@ -1,0 +1,14 @@
+#bpane{
+	-fx-background-color: black;
+}
+
+#lpane{
+	
+	-fx-background-color: #4D4D4F;
+}
+
+#userTopPane{
+	-fx-background-insets: 0, 6;
+	 -fx-background-radius: 6px, 0px;
+	-fx-background-color: #39393A;
+}

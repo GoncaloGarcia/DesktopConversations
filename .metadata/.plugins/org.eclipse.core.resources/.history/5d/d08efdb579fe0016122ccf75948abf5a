@@ -1,0 +1,30 @@
+#bpane{
+	-fx-background-color: #F9F9F9;
+}
+
+#lpane{
+	
+	-fx-background-color: #4D4D4F;
+}
+
+#rpane{
+	-fx-padding: 20,0,0,0;	
+}
+
+#userTopPane{
+	-fx-background-color: #39393A;
+}
+
+#msg{
+	-fx-background-radius: 30;
+	-fx-fill: black;
+	-fx-text-fill: white;	
+	-fx-padding:5,3,5,3;
+	-fx-background-color: #1AAA24;
+	-fx-font-size: 14;
+	
+}
+
+#msgPane{
+	padding:5,5,5,5;
+}

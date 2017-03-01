@@ -32,6 +32,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class DesktopClient extends Application {
+	
+	Image img = new Image(getClass().getResourceAsStream("transferir.jpg"));
+	Image settings = new Image(getClass().getResourceAsStream("settings.png"));
 
 	public static void main(String[] args) {
 		launch(args);
@@ -55,11 +58,19 @@ public class DesktopClient extends Application {
 		
 		HBox userTopPane = new HBox();
 		userTopPane.setId("userTopPane");
-		userTopPane.setMinSize(100,100);
+		userTopPane.setMinSize(100,50);
+		userTopPane.setSpacing(10);
+		
+		FlowPane userTopNamePane= new FlowPane(Orientation.VERTICAL);
+		userTopNamePane.setId("topNamePane");
+		userTopNamePane.setPrefHeight(50);
+		userTopNamePane.setVgap(-5);
+		
+		
 		
 		FlowPane msgPane = new FlowPane(Orientation.VERTICAL);
 		msgPane.setId("msgPane");
-		msgPane.setVgap(7);
+		msgPane.setVgap(10);
 		msgPane.setColumnHalignment(HPos.RIGHT);
 		
 		
@@ -87,6 +98,7 @@ public class DesktopClient extends Application {
 					ImageView imgview = new ImageView(img);
 					imgview.setFitHeight(40);
 					imgview.setFitWidth(40);
+					imgview.setId("userPic");
 					pic.setGraphic(imgview);
 					msgHolder.getChildren().add(msg);
 					msgHolder.getChildren().add(pic);
@@ -102,6 +114,37 @@ public class DesktopClient extends Application {
 			}
 		});
 		
+		
+		ImageView userPicView = new ImageView(img);
+		userPicView.setId("userPic");
+		userPicView.setFitHeight(50);
+		userPicView.setFitWidth(50);
+		userTopPane.getChildren().add(userPicView);
+		
+		
+		
+		userTopPane.getChildren().add(userTopNamePane);
+		
+		Label userNameLabel = new Label("CurrentUser");
+		userNameLabel.setId("UserNameLabel");
+		
+		Label userStatusLabel = new Label("Online");
+		userStatusLabel.setId("userStatusLabel");
+		
+		userTopNamePane.getChildren().add(userNameLabel);
+		
+		userTopNamePane.getChildren().add(userStatusLabel);
+		
+		FlowPane settingsPane = new FlowPane();
+		settingsPane.setAlignment(Pos.BASELINE_RIGHT);
+		settingsPane.setId("settingsPane");
+		ImageView settingsPicView = new ImageView(settings);
+		settingsPicView.setId("settingsPic");
+		settingsPicView.setFitHeight(20);
+		settingsPicView.setFitWidth(20);
+		
+		settingsPane.getChildren().add(settingsPicView);
+		userTopPane.getChildren().add(settingsPane);
 		
 		msgInput.setMaxSize(500, 50);
 		rightPane.setAlignment(msgInput, Pos.BOTTOM_CENTER);
