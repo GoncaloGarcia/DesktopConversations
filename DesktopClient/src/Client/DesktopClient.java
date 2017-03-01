@@ -76,7 +76,7 @@ public class DesktopClient extends Application {
 		FlowPane msgPane = new FlowPane(Orientation.VERTICAL);
 		msgPane.setId("msgPane");
 		msgPane.setVgap(10);
-		msgPane.setColumnHalignment(HPos.RIGHT);
+		msgPane.setColumnHalignment(HPos.LEFT);
 		
 		BorderPane convoInfoPane = new BorderPane();
 		convoInfoPane.setId("infoPane");
@@ -89,7 +89,7 @@ public class DesktopClient extends Application {
 		rightPane.setTop(convoInfoPane);
 		
 		leftPane.setTop(userTopPane);
-		rightPane.setRight(msgPane);
+		rightPane.setLeft(msgPane);
 		bPane.setRight(rightPane);
 		bPane.setLeft(leftPane);
 		
@@ -112,19 +112,20 @@ public class DesktopClient extends Application {
 					Label pic = new Label();
 					Image img = new Image(getClass().getResourceAsStream("transferir.jpg"));
 					ImageView imgview = new ImageView(img);
-					imgview.setFitHeight(45);
-					imgview.setFitWidth(45);
+					imgview.setFitHeight(35);
+					imgview.setFitWidth(35);
 					imgview.setId("userPic");
 					pic.setGraphic(imgview);
 					msgContent.setCenter(msg);
 					Label msginfo = new Label("CurrentUser  12:51");
 					msginfo.setId("msginfo");
 					msgContent.setTop(msginfo);
-					msgContent.setAlignment(msginfo, Pos.TOP_RIGHT);
-					msgContent.setAlignment(msg, Pos.TOP_RIGHT);
-					msgHolder.getChildren().add(msgContent);
+					msgContent.setAlignment(msginfo, Pos.TOP_LEFT);
+					msgContent.setAlignment(msg, Pos.TOP_LEFT);
 					msgHolder.getChildren().add(pic);
-					msgHolder.setAlignment(Pos.TOP_RIGHT);
+					msgHolder.getChildren().add(msgContent);
+					
+					msgHolder.setAlignment(Pos.TOP_LEFT);
 					msg.setText(msgInput.getText());	
 					msg.setId("msg");
 					
@@ -159,19 +160,15 @@ public class DesktopClient extends Application {
 		lockPicView.setFitWidth(20);
 		
 		FlowPane convoListPane = new FlowPane(Orientation.VERTICAL);
-		convoListPane.setVgap(10);
-		
-		ImageView urPicView = new ImageView(convo);
-		urPicView.setId("userPic");
-		urPicView.setFitHeight(50);
-		urPicView.setFitWidth(50);
+		convoListPane.setVgap(5);
+	
 		
 		FlowPane convoInfo = new FlowPane(Orientation.VERTICAL);
 		Label convoTitle = new Label("Conversations.im Summer of Code 2017");
 		convoTitle.setId("cTitle");
 		convoTitle.setPrefWidth(200);
 		
-		Label convoMsg = new Label("  CurrentUser: Whats up?");
+		Label convoMsg = new Label("     CurrentUser: Whats up?");
 		convoMsg.setId("convoMsg");
 		
 		
@@ -182,13 +179,45 @@ public class DesktopClient extends Application {
 		
 		HBox convoBox = new HBox();
 		convoBox.setSpacing(5);
-		convoBox.setMinSize(250,70);
-		convoBox.setMaxSize(250,70);
+		convoBox.setMinSize(250,56);
+		convoBox.setMaxSize(250,56);
 		convoBox.setId("convoBox");
 		
-		convoBox.getChildren().add(urPicView);
+		Label expandArrowUp = new Label("▼");
+		expandArrowUp.setId("expandUp");
+		convoBox.getChildren().add(expandArrowUp);
 		convoBox.getChildren().add(convoInfo);
 		convoListPane.getChildren().add(convoBox);
+		
+		
+		HBox convoBoxSmall = new HBox();
+		convoBoxSmall.setSpacing(10);
+		convoBoxSmall.setMinSize(250,20);
+		convoBoxSmall.setMaxSize(250,20);
+		convoBoxSmall.setId("convoBox");
+		
+		Label expandArrowDown = new Label("▶");
+		Label smallTitle = new Label("Conversations General");
+		smallTitle.setId("cTitle");
+		expandArrowDown.setId("expandDown");
+		convoBoxSmall.getChildren().add(expandArrowDown);
+		convoBoxSmall.getChildren().add(smallTitle);
+		convoListPane.getChildren().add(convoBoxSmall);
+		
+		HBox convoBoxSmall2 = new HBox();
+		convoBoxSmall2.setSpacing(10);
+		convoBoxSmall2.setMinSize(250,20);
+		convoBoxSmall2.setMaxSize(250,20);
+		convoBoxSmall2.setId("convoBox");
+		
+		Label expandArrowDown2 = new Label("▶");
+		Label smallTitle2 = new Label("Conversations Bugs");
+		smallTitle2.setId("cTitle");
+		expandArrowDown2.setId("expandDown");
+		convoBoxSmall2.getChildren().add(expandArrowDown2);
+		convoBoxSmall2.getChildren().add(smallTitle2);
+		convoListPane.getChildren().add(convoBoxSmall2);
+		
 		leftPane.setCenter(convoListPane);
 		
 		FlowPane convoSettingsPane = new FlowPane();

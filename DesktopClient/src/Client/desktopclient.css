@@ -16,14 +16,28 @@
 	-fx-padding: 15,15,15,15;
 }
 
+#expandUp{
+	-fx-font-family: "Segoe UI Semibold";
+	-fx-text-fill: #1AAA24;
+	-fx-font-size:0.8em;
+	-fx-padding:2.8;
+}
+
+#expandDown{
+	-fx-font-family: "Segoe UI Semibold";
+	-fx-text-fill: #1AAA24;
+	-fx-font-size:1.5em;
+	
+}
+
 #msg{
-	-fx-background-radius: 30;
+	-fx-background-radius: 8;
 	-fx-fill: black;
 	-fx-text-fill: white;	
-	-fx-padding:5,3,5,3;
+	-fx-padding:3,20,3,3;
 	-fx-font-family: "Segoe UI ";
 	-fx-background-color: #1AAA24;
-	-fx-font-size: 14;
+	-fx-font-size: 12;
 	
 }
 
@@ -36,7 +50,7 @@
 #convoname{
 	-fx-font-family: "Segoe UI Semibold";
 	-fx-text-fill: #606060;
-	-fx-font-size:1.6em;
+	-fx-font-size:1.4em;
 	
 }
 
@@ -49,12 +63,12 @@
 #cTitle{
 	-fx-font-family: "Segoe UI Semibold";
 	-fx-text-fill: #F9F9F9;
-	-fx-font-size:1.4em;
+	-fx-font-size:1.3em;
 }
 
 #convoMsg{
 		-fx-font-family: "Segoe UI Semibold";
-	-fx-text-fill: #F9F9F9;
+	-fx-text-fill: #91ED57;
 	-fx-font-size: 0.9em;
 	-fx-padding:3;
 }

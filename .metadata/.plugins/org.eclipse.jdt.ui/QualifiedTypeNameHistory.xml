@@ -7,9 +7,7 @@
 <fullyQualifiedTypeName name="javafx.application.Application"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Button"/>
 <fullyQualifiedTypeName name="javafx.geometry.Pos"/>
-<fullyQualifiedTypeName name="javafx.scene.layout.BorderPane"/>
 <fullyQualifiedTypeName name="Client.DesktopClient"/>
-<fullyQualifiedTypeName name="javafx.scene.layout.FlowPane"/>
 <fullyQualifiedTypeName name="javafx.scene.control.TextArea"/>
 <fullyQualifiedTypeName name="com.sun.corba.se.pept.transport.EventHandler"/>
 <fullyQualifiedTypeName name="com.sun.glass.events.KeyEvent"/>
@@ -18,8 +16,15 @@
 <fullyQualifiedTypeName name="javafx.event.EventHandler"/>
 <fullyQualifiedTypeName name="javafx.scene.input.KeyCode"/>
 <fullyQualifiedTypeName name="javafx.scene.Cursor"/>
-<fullyQualifiedTypeName name="javafx.geometry.Orientation"/>
 <fullyQualifiedTypeName name="javafx.geometry.HPos"/>
 <fullyQualifiedTypeName name="javafx.scene.image.Image"/>
 <fullyQualifiedTypeName name="javafx.scene.image.ImageView"/>
+<fullyQualifiedTypeName name="javafx.scene.layout.BorderPane"/>
+<fullyQualifiedTypeName name="javafx.scene.layout.HBox"/>
+<fullyQualifiedTypeName name="javafx.geometry.Orientation"/>
+<fullyQualifiedTypeName name="javafx.scene.layout.FlowPane"/>
+<fullyQualifiedTypeName name="javax.swing.border.SoftBevelBorder"/>
+<fullyQualifiedTypeName name="javafx.scene.text.Text"/>
+<fullyQualifiedTypeName name="javafx.scene.text.TextFlow"/>
+<fullyQualifiedTypeName name="javafx.scene.control.Label"/>
 </qualifiedTypeNameHistroy>
