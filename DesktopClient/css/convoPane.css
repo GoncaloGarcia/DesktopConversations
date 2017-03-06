@@ -1,0 +1,16 @@
+
+#msg {
+	-fx-background-radius: 8;
+	-fx-fill: black;
+	-fx-text-fill: white;
+	-fx-padding: 3, 20, 3, 3;
+	-fx-font-family: "Roboto Bold ";
+	-fx-background-color: #1AAA24;
+	-fx-font-size: 12;
+}
+
+#msginfo {
+	-fx-font-family: "Roboto Bold";
+	-fx-text-fill: #606060;
+	-fx-font-size: 0.85em;
+}

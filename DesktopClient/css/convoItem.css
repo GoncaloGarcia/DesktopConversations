@@ -1,0 +1,27 @@
+#cTitle{
+	-fx-font-family: "Roboto Bold";
+	-fx-text-fill: darkgray;
+	-fx-font-size:1.1em;
+}
+
+#cTitleNotif{
+	-fx-font-family: "Roboto Bold";
+	-fx-text-fill: #F9F9F9;
+	-fx-font-size:1.1em;
+}
+
+#expandUp{
+	-fx-font-family: "Roboto ";
+	-fx-text-fill:  white;
+	-fx-font-size:0.85em;
+	-fx-padding:1;
+	-fx-background-radius: 10;
+	-fx-background-color: #1AAA24;
+	
+}
+#convoBoxSelected {
+	-fx-padding: 5;
+	-fx-background-color: rgba(0,230,118,0.25);
+	-fx-background-radius: 5;
+}
+

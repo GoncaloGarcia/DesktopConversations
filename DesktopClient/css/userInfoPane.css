@@ -1,0 +1,29 @@
+#userTopPane {
+	-fx-background-color: #303030;
+	-fx-padding: 15, 15, 15, 15;
+}
+
+#topNamePane {
+	fx-padding: 10, 10, 10, 10;
+	fx-background-color: white;
+}
+
+#UserNameLabel {
+	-fx-font-family: Roboto Medium;
+	-fx-text-fill: #F9F9F9;
+	-fx-font-size: 1.7em;
+	-fx-padding: -1;
+	-fx-font-family: "Segoe UI Semibold";
+}
+
+#userStatusLabel {
+	-fx-font-family: "Roboto Light ";
+	-fx-text-fill: white;
+	-fx-text-font-size: 1.1em;
+	-fx-text-fill: #91ED57;
+}
+
+
+#settingsPane{
+	-fx-padding:8;
+}

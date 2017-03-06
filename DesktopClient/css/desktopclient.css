@@ -1,0 +1,72 @@
+#bpane {
+	-fx-background-color: #eeeeee;
+}
+
+#lpane {
+	-fx-background-color: #424242;
+}
+
+#rpane {
+	-fx-padding: 20, 0, 0, 0;
+}
+
+#addmore {
+	-fx-focus-color: transparent;
+	-fx-faint-focus-color: transparent;
+	-fx-border-color: derive(-fx-text-box-border, -10%);
+}
+
+#input {
+	-fx-focus-color: transparent;
+	-fx-background-insets: -1.4, 0, 1, 2;
+}
+
+.text-area {
+	-fx-focus-color: transparent;
+	-fx-faint-focus-color: transparent;
+}
+
+.text-area .content {
+	-fx-background-color: -fx-control-inner-background;
+}
+
+.text-area:focused .content {
+	-fx-background-color: -fx-control-inner-background;
+}
+
+.text-area:focused {
+	-fx-background-color: linear-gradient(to bottom, derive(-fx-text-box-border, -10%),
+		-fx-text-box-border), -fx-control-inner-background;
+	-fx-background-insets: 0, 1;
+	-fx-background-radius: 3, 2;
+}
+
+#expandDown {
+	-fx-font-family: "RobotoBold";
+	-fx-text-fill: #1AAA24;
+	-fx-font-size: 1.6em;
+	-fx-padding: -6, 10, 10, 10;
+}
+
+#listPane {
+	-fx-padding: 8;
+}
+
+
+
+
+#convoMsg {
+	-fx-font-family: "Segoe UI Semibold";
+	-fx-text-fill: #91ED57;
+	-fx-font-size: 0.9em;
+	-fx-padding: 3;
+}
+
+#convoBox {
+	-fx-padding: 5;
+}
+
+
+#msgPane {
+	padding: 5, 5, 5, 5;
+}

@@ -1,0 +1,12 @@
+
+#infoPane{
+	-fx-background-color:#1AAA24;
+	
+}
+
+#convoname{
+	-fx-font-family: "Roboto Medium";
+	-fx-text-fill: white;
+	-fx-font-size:1.4em;
+	
+}
