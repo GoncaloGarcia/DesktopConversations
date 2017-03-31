@@ -25,8 +25,9 @@ public class ConvoItem extends HBox{
 
 	private void setAppearance() {
 		setSpacing(10);
-		setMinSize(250, 20);
-		setMaxSize(250, 28);
+		setPrefHeight(25);
+		setMinSize(250, 15);
+//		setMaxSize(250, 28);
 		setId("convoBox");
 		
 	}

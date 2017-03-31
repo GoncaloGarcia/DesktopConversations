@@ -43,9 +43,11 @@ public class DesktopClient extends Application {
 	BorderPane bPane;
 	BorderPane rightPane;
 	BorderPane leftPane;
+	BorderPane leftContent;
 	
 	Image paperclip = new Image(getClass().getResourceAsStream("/paperclip.png"));
 	Image addContact = new Image(getClass().getResourceAsStream("/newcontact.png"));
+	Image filter = new Image(getClass().getResourceAsStream("/search.png"));
 
 	
 	public static void main(String[] args) {
@@ -62,12 +64,14 @@ public class DesktopClient extends Application {
 		rightPane = new BorderPane();
 		rightPane.setId("rpane");
 		rightPane.setMinHeight(400);
-		rightPane.setPrefSize(600, 550);
+		rightPane.setPrefSize(550, 550);
 
 		leftPane = new BorderPane();
 		leftPane.setId("lpane");
 		leftPane.setPrefWidth(250);
 
+		leftContent = new BorderPane();
+		
 
 		ConvoPane msgPane = new ConvoPane();
 		
@@ -76,11 +80,14 @@ public class DesktopClient extends Application {
 		
 		
 		Scene scene = new Scene(bPane);
+		primaryStage.setResizable(false);
 		loadStyleSheets(scene);
 
 		TextArea msgInput = createWritingArea(msgPane);
 
 		FlowPane convoListPane = createConvoList();
+		
+		createFilterContact(convoListPane);
 
 		createSmallConvo(convoListPane, "Conversations General", 0,false);
 		createSmallConvo(convoListPane, "Conversations Q&A", 3,false);
@@ -91,10 +98,13 @@ public class DesktopClient extends Application {
 		
 		createAddNewContact(convoListPane);
 
-		leftPane.setCenter(convoListPane);
+		leftContent.setCenter(convoListPane);
+		
+		leftPane.setCenter(leftContent);
 		rightPane.setTop(menubar);
 		leftPane.setTop(new UserInfoPane());
-		rightPane.setLeft(msgPane);
+		rightPane.setCenter(msgPane);
+		BorderPane.setMargin(msgPane, new Insets(8,-10,0,-20));
 		bPane.setRight(rightPane);
 		bPane.setLeft(leftPane);
 
@@ -129,7 +139,8 @@ public class DesktopClient extends Application {
 		HBox convoBoxSmall = new HBox();
 		convoBoxSmall.setSpacing(5);
 		convoBoxSmall.setMinSize(250, 20);
-		convoBoxSmall.setMaxSize(250, 28);
+		//convoBoxSmall.setPrefWidth(200);
+		//convoBoxSmall.setMaxSize(250, 28);
 		convoBoxSmall.setId("convoBox");
 
 		ImageView addC = new ImageView(addContact);
@@ -141,17 +152,44 @@ public class DesktopClient extends Application {
 		convoBoxSmall.getChildren().add(addC);
 		convoBoxSmall.getChildren().add(title);
 		
-		convoListPane.getChildren().add(convoBoxSmall);
-		convoListPane.setAlignment(Pos.TOP_LEFT);
+		leftPane.setBottom(convoBoxSmall);
+		convoBoxSmall.setAlignment(Pos.TOP_CENTER);
+		BorderPane.setMargin(convoBoxSmall, new Insets(-6,10,7,10));
+	}
+	private void createFilterContact(FlowPane convoListPane) {
+		HBox convoBoxSmall = new HBox();
+		convoBoxSmall.setSpacing(5);
+		convoBoxSmall.setMinSize(250, 20);
+		//convoBoxSmall.setPrefWidth(200);
+		//convoBoxSmall.setMaxSize(250, 28);
+		convoBoxSmall.setId("convoBox");
+
+		ImageView addC = new ImageView(filter);
+		addC.setFitHeight(20);
+		addC.setPreserveRatio(true);
+		Label title = new Label("Filter Contacts");
+		title.setId("cTitleNotif");
+		
+		convoBoxSmall.getChildren().add(addC);
+		convoBoxSmall.getChildren().add(title);
+		BorderPane.setMargin(convoBoxSmall, new Insets(8,10,0,10));
+		leftContent.setTop(convoBoxSmall);
+		convoBoxSmall.setAlignment(Pos.TOP_CENTER);
+		
 	}
 
 	private FlowPane createConvoList() {
+		
 		FlowPane convoListPane = new FlowPane(Orientation.VERTICAL);
-		convoListPane.setVgap(-4);
+		convoListPane.setVgap(0);
+		convoListPane.setPrefWidth(100);
 		convoListPane.setColumnHalignment(HPos.CENTER);
 		convoListPane.setId("listPane");
+		BorderPane.setMargin(convoListPane, new Insets(1.5,10,7.5,10));
 		return convoListPane;
 	}
+	
+	
 
 	private TextArea createWritingArea(ConvoPane msgPane) {
 		TextArea msgInput = new TextArea();
@@ -171,10 +209,10 @@ public class DesktopClient extends Application {
 			}
 		});
 		
-		msgInput.setMaxSize(500, 20);
+		msgInput.setMaxSize(500, 39);
 		rightPane.setAlignment(msgInput, Pos.BOTTOM_CENTER);
 		HBox writingArea = new HBox();
-		writingArea.setAlignment(Pos.CENTER);
+		writingArea.setAlignment(Pos.TOP_CENTER);
 		
 		Button addMore = new Button();
 		addMore.setId("addmore");
@@ -182,6 +220,9 @@ public class DesktopClient extends Application {
 		paperclipView.setFitHeight(29);
 		paperclipView.setFitWidth(29);
 		addMore.setGraphic(paperclipView);
+		writingArea.setId("wArea");
+		writingArea.setPrefHeight(50);
+		BorderPane.setMargin(writingArea, new Insets(0,-10,-13,-20));
 		
 		writingArea.getChildren().add(addMore);
 		writingArea.getChildren().add(msgInput);

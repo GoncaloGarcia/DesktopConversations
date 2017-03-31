@@ -39,8 +39,8 @@ public class ConvoMenuBar extends BorderPane{
 	
 	private void setAppearance(){
 		setId("infoPane");
-		setMinSize(200, 70);
-		
+		setMinSize(200, 20);
+		setPrefHeight(50);
 		DropShadow dp = new DropShadow();
 		dp.setWidth(0);
 		setEffect(dp);

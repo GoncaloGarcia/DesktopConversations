@@ -18,10 +18,12 @@ public class ConvoPane extends FlowPane{
 	
 	private void setAppearance(){
 		setOrientation(Orientation.VERTICAL);
-		setId("");
-		BorderPane.setMargin(this, new Insets(10,0,0,0));
-		setVgap(10);
+		setId("cPane");
+		//BorderPane.setMargin(this, new Insets(10,0,0,0));
+		//setVgap(10);
+		
 		setColumnHalignment(HPos.LEFT);
+		setPrefWidth(500);
 		
 	}
 	
@@ -56,6 +58,8 @@ public class ConvoPane extends FlowPane{
 		msg.setId("msg");
 		
 		getChildren().add(msgHolder);
+		
+		setMargin(msgHolder, new Insets(7,0,0,10));
 	}
 
 }

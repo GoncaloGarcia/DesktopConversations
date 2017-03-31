@@ -26,7 +26,7 @@ public class UserInfoPane extends HBox{
 		loadImages();
 		setUserPic();
 		setUserInfo();
-		setSettings();
+		//	setSettings();
 	}
 	
 	public void setUserName(String userName) {
@@ -41,7 +41,7 @@ public class UserInfoPane extends HBox{
 	private void setAppearance(){
 		setId("userTopPane");
 		setMinSize(100, 40);
-		setPrefHeight(70);
+		setPrefHeight(50);
 		setSpacing(10);
 		
 		DropShadow dp = new DropShadow();
@@ -73,8 +73,8 @@ public class UserInfoPane extends HBox{
 	
 	private void setUserPic(){
 		ImageView userPicView = new ImageView(img);
-		userPicView.setFitHeight(40);
-		userPicView.setFitWidth(40);
+		userPicView.setFitHeight(35);
+		userPicView.setFitWidth(35);
 		
 		getChildren().add(userPicView);
 	}
