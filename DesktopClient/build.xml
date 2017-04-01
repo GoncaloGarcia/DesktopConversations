@@ -39,6 +39,15 @@
     <target name="clean">
         <delete dir="bin"/>
     </target>
+	<target name="create_run_jar">
+	        <jar destfile="C:/Users/ggarc_000/GSOC7/ConversationDesktop/DesktopClient/Conversations.jar" filesetmanifest="mergewithoutmain">
+	            <manifest>
+	                <attribute name="Main-Class" value="Client.DesktopClient"/>
+	                <attribute name="Class-Path" value="."/>
+	            </manifest>
+	            <fileset dir="C:/Users/ggarc_000/GSOC7/ConversationDesktop/DesktopClient/bin"/>
+	        </jar>
+	    </target>
     <target depends="clean" name="cleanall"/>
     <target depends="build-subprojects,build-project" name="build"/>
     <target name="build-subprojects"/>
